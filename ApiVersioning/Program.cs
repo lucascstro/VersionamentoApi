@@ -10,27 +10,19 @@ public class Program
         
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
 
         builder.Services.AddApiVersioning(options =>
             {
                 options.DefaultApiVersion = new ApiVersion(1, 0);
                 options.AssumeDefaultVersionWhenUnspecified = true;
-                options.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                options.ApiVersionReader = ApiVersionReader.Combine(
+                    //new HeaderApiVersionReader("api-version"),
+                    new QueryStringApiVersionReader("v")
+                );
             })
-            .AddMvc()
-            .AddApiExplorer(options =>
-            {
-                options.GroupNameFormat = "'v'VVV";
-                options.SubstituteApiVersionInUrl = false;
-            });
+            .AddMvc();
 
         var app = builder.Build();
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
         
         app.UseHttpsRedirection();
         app.UseAuthorization();

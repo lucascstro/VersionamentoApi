@@ -10,4 +10,10 @@ Accept: application/json
 api-version: 2
 
 ###
+GET {{ApiVersioning_HostAddress}}/api/v1/Order
+Accept: application/json
+###
+GET {{ApiVersioning_HostAddress}}/api/v2/Order
+Accept: application/json
+###
 
