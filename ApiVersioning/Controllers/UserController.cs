@@ -9,7 +9,7 @@ namespace ApiVersioning.Controllers
     public class UserController : ControllerBase
     {
         [HttpGet]
-        public ActionResult Get() => Ok("Versão 1");
+        public ActionResult Get() => Ok("User Versão 1");
         
     }
 }
