@@ -4,11 +4,9 @@ GET {{ApiVersioning_HostAddress}}/api/User
 Accept: application/json
 api-version: 1
 ###
-
 GET {{ApiVersioning_HostAddress}}/api/User
 Accept: application/json
 api-version: 2
-
 ###
 GET {{ApiVersioning_HostAddress}}/api/v1/Order
 Accept: application/json
@@ -16,4 +14,9 @@ Accept: application/json
 GET {{ApiVersioning_HostAddress}}/api/v2/Order
 Accept: application/json
 ###
-
+GET {{ApiVersioning_HostAddress}}/api/customer?api-version=1
+Accept: application/json
+###
+GET {{ApiVersioning_HostAddress}}/api/customer?api-version=2
+Accept: application/json
+###
